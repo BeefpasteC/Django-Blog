@@ -1,0 +1,14 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.center{
+    position: absolute;
+    top: 10%;
+    left: 28%;
+    width: 650px;
+    height: 450px;
+    background-color: #00ffcc;
+}
+

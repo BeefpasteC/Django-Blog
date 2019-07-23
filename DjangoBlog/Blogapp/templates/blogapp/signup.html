@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf8">
+<title>博客</title>
+<meta name="keywords" content="个人博客模板" />
+<meta name="description" content="个人博客模板" />
+<link href="/static/blogapp/css/base.css" rel="stylesheet">
+<link href="/static/blogapp/css/main.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="/static/js/modernizr.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/static/blogapp/js/jquery.js"></script>
+    <style>
+        .content{
+            width: 100%;
+            height: 350px;
+            position: relative;
+        }
+        .content div{
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            width: 700px;
+            height: 350px;
+            text-align: center;
+        }
+        .label{
+            color: #333333;
+            font-size: 60px;
+
+        }
+        .register_form{
+            width: 50%;
+            height: 300px;
+            color: #000fcc;
+            position: absolute;
+            top: 24%;
+            left: 22%
+
+        }
+        .register_form p{
+            text-align: center;
+
+        }
+        .register_form label{
+            font-size: 24px;
+
+        }
+        .register_form input{
+            font-size: 24px;
+            margin-top: 32px;
+
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+<header>
+  <div class="headtop"></div>
+  <div class="contenttop">
+    <div class="logo f_l">个人博客模板</div>
+    <div class="search f_r">
+      <form action="/e/search/index.php" method="post" name="searchform" id="searchform">
+
+        <input name="show" value="title" type="hidden">
+        <input name="tempid" value="1" type="hidden">
+        <input name="tbname" value="news" type="hidden">
+
+      </form>
+    </div>
+    <div class="blank"></div>
+    <nav>
+      <div  class="navigation">
+        <ul class="menu" >
+          <li style="width: 400px;margin-left: -25px"><a href="#">忘记密码？</a></li>
+          <li><a href="#"></a> </li>
+          <li><a href="#"></a> </li>
+          <li><a href="#"></a> </li>
+          <li><a href="/blog/in/">登录账号</a></li>
+        </ul>
+      </div>
+    </nav>
+    <SCRIPT type=text/javascript>
+	// Navigation Menu
+	$(function() {
+		$(".menu ul").css({display: "none"}); // Opera Fix
+		$(".menu li").hover(function(){
+			$(this).find('ul:first').css({visibility: "visible",display: "none"}).slideDown("normal");
+		},function(){
+			$(this).find('ul:first').css({visibility: "hidden"});
+		});
+	});
+</SCRIPT>
+  </div>
+</header>
+    <div class="content">
+        <div style="position: relative">
+        <p class="label"> 注册 </p>
+        <form class="register_form" method="post">
+            {% csrf_token %}
+            <p>
+                <label>账号</label>
+                <input type="text" name="username">
+            </p>
+            <p>
+                <label>密码</label>
+                <input type="password" name="password">
+            </p>
+            <p>
+                <input class="submit" type="submit" value="注册">
+            </p>
+            <p>
+                <a href="/blog/in/">已有账号？前往登录</a>
+            </p>
+            <p class="message">{{ result.content }}</p>
+
+        </form>
+        </div>
+    </div>
+  <footer>
+    <div class="footer">
+      <div class="f_l">
+        <p>All Rights Reserved 版权所有：<a href="https://blog.csdn.net/ybw_2569">Ybw个人博客</a> 备案号：豫ICP备0101001号</p>
+      </div>
+      <div class="f_r textr">
+        <p>Design by DanceSmile</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
